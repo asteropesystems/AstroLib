@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{0BA30F01-8A4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{C1D06A8E-A27C-47BC-A3BE-627E81F0C346}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRunner", "ConsoleRunner\ConsoleRunner.csproj", "{B70AA59A-73C6-4734-B25F-DD5BCAF125B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleRunner", "ConsoleRunner\ConsoleRunner.csproj", "{B70AA59A-73C6-4734-B25F-DD5BCAF125B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstroLib", "AstroLib\AstroLib.csproj", "{62FB88C5-B1E3-46B5-AF16-0787E9B0E5E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,12 +21,17 @@ Global
 		{B70AA59A-73C6-4734-B25F-DD5BCAF125B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B70AA59A-73C6-4734-B25F-DD5BCAF125B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B70AA59A-73C6-4734-B25F-DD5BCAF125B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62FB88C5-B1E3-46B5-AF16-0787E9B0E5E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62FB88C5-B1E3-46B5-AF16-0787E9B0E5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62FB88C5-B1E3-46B5-AF16-0787E9B0E5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62FB88C5-B1E3-46B5-AF16-0787E9B0E5E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B70AA59A-73C6-4734-B25F-DD5BCAF125B7} = {C1D06A8E-A27C-47BC-A3BE-627E81F0C346}
+		{62FB88C5-B1E3-46B5-AF16-0787E9B0E5E7} = {C1D06A8E-A27C-47BC-A3BE-627E81F0C346}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {49EF357D-7FE8-41D2-A1BA-3C2DF9E4395A}

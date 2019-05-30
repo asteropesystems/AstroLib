@@ -1,4 +1,5 @@
 ﻿using System;
+using AstroLib;
 
 namespace ConsoleRunner
 {
@@ -6,7 +7,11 @@ namespace ConsoleRunner
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var time = new Time();
+
+            double jdNow = time.JulianDate(DateTime.Now);
+
+            Console.Write(jdNow);
         }
     }
 }
