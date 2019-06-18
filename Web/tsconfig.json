@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "preserveConstEnums": true,
+      "inlineSourceMap": true
+    },
+    "exclude": [
+      "node_modules",
+      "typings"
+    ]
+  }
