@@ -1,0 +1,16 @@
+{
+    "name": "AstroLib",
+    "version": "0.0.1",
+    "description": "An astronomical ibrary written in C#, TypeScript and JavaScript",
+    "devDependencies": {
+      "jasmine": "3.4.0",
+      "typescript": "3.5.2",
+      "typings": "1.0.4"
+    },
+    "dependencies": {
+    },
+    "scripts": {
+    },
+    "author": "Garry Pilkington",
+    "license": "MIT"
+  }
