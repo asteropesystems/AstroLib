@@ -1,14 +1,15 @@
 'use strict';
 namespace AstroLib {
-  export class Time {
-    convertRightAscensionToDecimal = (raHours, raMinutes, raSeconds) => {
+  export class TimeConverter {
+    siderealTime = (d, lw) => {
+        var pi = Math.PI;
+        var rad = pi / 180;
 
-        var seconds = raSeconds / 60;
-        var minutes = (raMinutes + seconds) / 60;
-        var result = raHours + minutes;
+        var result = rad * (280.16 + 360.9856235 * d) - lw;
 
-        return parseFloat(result.toFixed(5));
+        return result;
     };
+
   }
 
 }

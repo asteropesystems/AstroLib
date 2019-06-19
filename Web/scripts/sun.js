@@ -1,0 +1,87 @@
+// <reference path="../../scripts/time.ts" />
+// <reference path="../../scripts/date.ts" />
+'use strict';
+var AstroLib;
+(function (AstroLib) {
+    var Sun = /** @class */ (function () {
+        function Sun() {
+            var _this = this;
+            this.getSunPosition = function (date, lat, lng) {
+                var pi = Math.PI;
+                var rad = pi / 180;
+                var lw = rad * -lng;
+                var phi = rad * lat;
+                var dateConverter = new AstroLib.DateConverter();
+                var days = dateConverter.convertToDays(date);
+                var timeConverter = new AstroLib.TimeConverter();
+                var c = _this.sunCoords(days);
+                var h = timeConverter.siderealTime(days, lw) - c.ra;
+                //return true;
+                return {
+                    azimuth: _this.azimuth(h, phi, c.dec),
+                    altitude: _this.altitude(h, phi, c.dec)
+                };
+            };
+            this.azimuth = function (h, phi, dec) {
+                var pi = Math.PI;
+                var sin = Math.sin;
+                var cos = Math.cos;
+                var tan = Math.tan;
+                var atan = Math.atan2;
+                return atan(sin(h), cos(h) * sin(phi) - tan(dec) * cos(phi));
+            };
+            this.altitude = function (h, phi, dec) {
+                var pi = Math.PI;
+                var rad = pi / 180;
+                var sin = Math.sin;
+                var cos = Math.cos;
+                var asin = Math.asin;
+                return asin(sin(phi) * sin(dec) + cos(phi) * cos(dec) * cos(h));
+            };
+            this.sunCoords = function (d) {
+                var m = _this.solarMeanAnomaly(d);
+                var l = _this.eclipticLongitude(m);
+                return {
+                    dec: _this.declination(l, 0),
+                    ra: _this.rightAscension(l, 0)
+                };
+            };
+            this.solarMeanAnomaly = function (d) {
+                var pi = Math.PI;
+                var rad = pi / 180;
+                return rad * (357.5291 + 0.98560028 * d);
+            };
+            this.eclipticLongitude = function (m) {
+                var pi = Math.PI;
+                var rad = pi / 180;
+                var sin = Math.sin;
+                var c = rad * (1.9148 * sin(m) + 0.02 * sin(2 * m) + 0.0003 * sin(3 * m));
+                var p = rad * 102.9372;
+                return m + c + p + pi;
+            };
+            this.declination = function (l, b) {
+                var pi = Math.PI;
+                var rad = pi / 180;
+                var sin = Math.sin;
+                var cos = Math.cos;
+                var tan = Math.tan;
+                var atan = Math.atan2;
+                var e = rad * 23.4397;
+                return atan(sin(l) * cos(e) - tan(b) * sin(e), cos(l));
+            };
+            this.rightAscension = function (l, b) {
+                var pi = Math.PI;
+                var rad = pi / 180;
+                var sin = Math.sin;
+                var cos = Math.cos;
+                var tan = Math.tan;
+                var atan = Math.atan2;
+                var e = rad * 23.4397;
+                return atan(sin(l) * cos(e) - tan(b) * sin(e), cos(l));
+            };
+        }
+        return Sun;
+    }());
+    AstroLib.Sun = Sun;
+})(AstroLib || (AstroLib = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3VuLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsic3VuLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDZDQUE2QztBQUM3Qyw2Q0FBNkM7QUFFN0MsWUFBWSxDQUFDO0FBQ2IsSUFBVSxRQUFRLENBc0dqQjtBQXRHRCxXQUFVLFFBQVE7SUFDaEI7UUFBQTtZQUFBLGlCQW1HQztZQWxHQyxtQkFBYyxHQUFHLFVBQUMsSUFBSSxFQUFFLEdBQUcsRUFBRSxHQUFHO2dCQUM1QixJQUFJLEVBQUUsR0FBRyxJQUFJLENBQUMsRUFBRSxDQUFDO2dCQUNqQixJQUFJLEdBQUcsR0FBRyxFQUFFLEdBQUcsR0FBRyxDQUFDO2dCQUNuQixJQUFJLEVBQUUsR0FBRyxHQUFHLEdBQUcsQ0FBQyxHQUFHLENBQUM7Z0JBQ3BCLElBQUksR0FBRyxHQUFHLEdBQUcsR0FBRyxHQUFHLENBQUM7Z0JBRXBCLElBQUksYUFBYSxHQUFHLElBQUksU0FBQSxhQUFhLEVBQUUsQ0FBQztnQkFDeEMsSUFBSSxJQUFJLEdBQUcsYUFBYSxDQUFDLGFBQWEsQ0FBQyxJQUFJLENBQUMsQ0FBQztnQkFFN0MsSUFBSSxhQUFhLEdBQUcsSUFBSSxTQUFBLGFBQWEsRUFBRSxDQUFDO2dCQUV4QyxJQUFJLENBQUMsR0FBRyxLQUFJLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDO2dCQUM3QixJQUFJLENBQUMsR0FBRyxhQUFhLENBQUMsWUFBWSxDQUFDLElBQUksRUFBRSxFQUFFLENBQUMsR0FBRyxDQUFDLENBQUMsRUFBRSxDQUFDO2dCQUVwRCxjQUFjO2dCQUVkLE9BQU87b0JBQ0gsT0FBTyxFQUFFLEtBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxFQUFFLEdBQUcsRUFBRSxDQUFDLENBQUMsR0FBRyxDQUFDO29CQUNwQyxRQUFRLEVBQUUsS0FBSSxDQUFDLFFBQVEsQ0FBQyxDQUFDLEVBQUUsR0FBRyxFQUFFLENBQUMsQ0FBQyxHQUFHLENBQUM7aUJBQ3pDLENBQUM7WUFFTixD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
