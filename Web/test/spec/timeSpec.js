@@ -1,0 +1,45 @@
+// <reference path="../../typings/index.d.ts" />
+// <reference path="../../scripts/time.ts" />
+describe('In the file time.ts', function () {
+    var sut;
+    var date;
+    var julianDate;
+    var lon;
+    var hours;
+    var minutes;
+    var seconds;
+    var rightAscension;
+    var h;
+    beforeEach(function () {
+        date = new Date("2019-06-19");
+        julianDate = 2458653.5;
+        lon = -3;
+        hours = 16;
+        minutes = 22;
+        seconds = 15;
+        rightAscension = 16.45;
+        h = 4;
+        sut = new AstroLib.TimeConverter();
+    });
+    describe('calculateMeanSiderealTime', function () {
+        it('should be equal to 263.9349363367073', function () {
+            expect(sut.calculateMeanSiderealTime(date, lon)).toEqual(263.9349363367073);
+        });
+    });
+    describe('convertHoursMinutesSecondsToDecimal', function () {
+        it('should be equal to 16.37083', function () {
+            expect(sut.convertHoursMinutesSecondsToDecimal(hours, minutes, seconds)).toEqual(16.37083);
+        });
+    });
+    describe('calculateLstRise', function () {
+        it('should be equal to 12.45', function () {
+            expect(sut.calculateLstRise(rightAscension, h)).toEqual(12.45);
+        });
+    });
+    describe('calculateLstSet', function () {
+        it('should be equal to 20.45', function () {
+            expect(sut.calculateLstSet(rightAscension, h)).toEqual(20.45);
+        });
+    });
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGltZVNwZWMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJ0aW1lU3BlYy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxnREFBZ0Q7QUFDaEQsNkNBQTZDO0FBRTdDLFFBQVEsQ0FBQyxxQkFBcUIsRUFBRTtJQUM1QixJQUFJLEdBQTJCLENBQUM7SUFFaEMsSUFBSSxJQUFJLENBQUM7SUFDVCxJQUFJLFVBQVUsQ0FBQztJQUNmLElBQUksR0FBRyxDQUFDO0lBQ1IsSUFBSSxLQUFLLENBQUM7SUFDVixJQUFJLE9BQU8sQ0FBQztJQUNaLElBQUksT0FBTyxDQUFDO0lBQ1osSUFBSSxjQUFjLENBQUM7SUFDbkIsSUFBSSxDQUFDLENBQUM7SUFFTixVQUFVLENBQUM7UUFDUCxJQUFJLEdBQUcsSUFBSSxJQUFJLENBQUMsWUFBWSxDQUFDLENBQUM7UUFDOUIsVUFBVSxHQUFHLFNBQVMsQ0FBQztRQUN2QixHQUFHLEdBQUcsQ0FBQyxDQUFDLENBQUM7UUFDVCxLQUFLLEdBQUcsRUFBRSxDQUFDO1FBQ1gsT0FBTyxHQUFHLEVBQUUsQ0FBQztRQUNiLE9BQU8sR0FBRyxFQUFFLENBQUM7UUFDYixjQUFjLEdBQUcsS0FBSyxDQUFDO1FBQ3ZCLENBQUMsR0FBRyxDQUFDLENBQUM7UUFFTixHQUFHLEdBQUcsSUFBSSxRQUFRLENBQUMsYUFBYSxFQUFFLENBQUM7SUFDdkMsQ0FBQyxDQUFDLENBQUE7SUFFRixRQUFRLENBQUMsMkJBQTJCLEVBQUU7UUFDbEMsRUFBRSxDQUFDLHNDQUFzQyxFQUFFO1lBQ3ZDLE1BQU0sQ0FBQyxHQUFHLENBQUMseUJBQXlCLENBQUMsSUFBSSxFQUFFLEdBQUcsQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLGlCQUFpQixDQUFDLENBQUM7UUFDaEYsQ0FBQyxDQUFDLENBQUE7SUFDTixDQUFDLENBQUMsQ0FBQTtJQUVGLFFBQVEsQ0FBQyxxQ0FBcUMsRUFBRTtRQUM1QyxFQUFFLENBQUMsNkJBQTZCLEVBQUU7WUFDOUIsTUFBTSxDQUFDLEdBQUcsQ0FBQyxtQ0FBbUMsQ0FBQyxLQUFLLEVBQUUsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLFFBQVEsQ0FBQyxDQUFDO1FBQy9GLENBQUMsQ0FBQyxDQUFBO0lBQ04sQ0FBQyxDQUFDLENBQUE7SUFFRixRQUFRLENBQUMsa0JBQWtCLEVBQUU7UUFDekIsRUFBRSxDQUFDLDBCQUEwQixFQUFFO1lBQzNCLE1BQU0sQ0FBQyxHQUFHLENBQUMsZ0JBQWdCLENBQUMsY0FBYyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBQ25FLENBQUMsQ0FBQyxDQUFBO0lBQ04sQ0FBQyxDQUFDLENBQUE7SUFFRixRQUFRLENBQUMsaUJBQWlCLEVBQUU7UUFDeEIsRUFBRSxDQUFDLDBCQUEwQixFQUFFO1lBQzNCLE1BQU0sQ0FBQyxHQUFHLENBQUMsZUFBZSxDQUFDLGNBQWMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUNsRSxDQUFDLENBQUMsQ0FBQTtJQUNOLENBQUMsQ0FBQyxDQUFBO0FBRU4sQ0FBQyxDQUFDLENBQUMifQ==
