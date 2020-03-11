@@ -21,7 +21,7 @@ describe('In the file time.ts', () =>{
     let UTseconds;
 
     beforeEach(() =>{
-        date = new Date("2019-06-19");
+        date = new Date(2019, 5, 19, 10, 20, 30);
         julianDate = 2458653.5;
         longitude = -3;
         hours = 16;
@@ -41,8 +41,8 @@ describe('In the file time.ts', () =>{
     })
 
     describe('calculateMeanSiderealTime', ()=>{
-        it('should be equal to 263.9349363367073', ()=>{
-            expect(sut.calculateMeanSiderealTime(date, longitude)).toEqual(263.9349363367073);
+        it('should be equal to 44.44358588568866', ()=>{
+            expect(sut.calculateMeanSiderealTime(date, longitude)).toEqual(44.44358588568866);
         })
     })
 

@@ -1,12 +1,16 @@
-﻿using System;
-
-namespace AstroLib
+﻿namespace AstroLib
 {
     public class Time
     {
-        public double JulianDate(DateTime now)
+        public double hours;
+        public double minutes;
+        public double seconds;
+
+        public Time(double hours, double minutes, double seconds)
         {
-            return 12345.676544;
+            this.hours = hours;
+            this.minutes = minutes;
+            this.seconds = seconds;
         }
     }
 }

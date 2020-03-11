@@ -207,6 +207,7 @@ namespace AstroLib {
 
             // days since J2000.0
             var jd = b + c + d - 730550.5 + day + (hour + minute / 60.0 + second / 3600.0) / 24.0;
+            console.log('jd: ', jd);
 
             // julian centuries since J2000.0
             var jt = jd / 36525.0;

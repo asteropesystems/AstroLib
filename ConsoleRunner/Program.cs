@@ -7,11 +7,7 @@ namespace ConsoleRunner
     {
         static void Main(string[] args)
         {
-            var time = new Time();
-
-            double jdNow = time.JulianDate(DateTime.Now);
-
-            Console.Write(jdNow);
+            Console.WriteLine();
         }
     }
 }
